@@ -1,3 +1,5 @@
+ 
+
 //*******************************************************
 // Account.java
 //
@@ -14,7 +16,9 @@ public class Account
   //----------------------------------------------
   public Account(double initBal, String owner, long number)
   {
-   
+      this.balance = initBal;
+      this.name = owner;
+      this.acctNum = number;
   }
   //----------------------------------------------
   // Checks to see if balance is sufficient for withdrawal.
@@ -22,39 +26,42 @@ public class Account
   //----------------------------------------------
   public void withdraw(double amount)
   {
-      }
+      this.balance = this.balance - amount;
+  }
   //----------------------------------------------
   // Adds deposit amount to balance.
   //----------------------------------------------
   public void deposit(double amount)
   {
- 
+      this.balance = this.balance + amount;
   }
   //----------------------------------------------
   // Returns balance.
   //----------------------------------------------
   public double getBalance()
   {
- 
+      return this.balance;
   }
   //----------------------------------------------
   // Returns a string containing the name, account number, and balance.
   //----------------------------------------------
   public String toString()
   {
+      return "Account Name: " + this.name + "\n" + "Account Number: " + this.acctNum + "\n" + "Account Balance: " + this.balance;
   }
   //----------------------------------------------
   // Deducts $10 service fee
   //----------------------------------------------
-  public void chargeFee()
+  public double chargeFee()
   {
-   
+      this.balance = this.balance - 10;
+      return this.balance;
   }
   //----------------------------------------------
   // Changes the name on the account
   //----------------------------------------------
   public void changeName(String newName)
-                         
   {
+      this.name = newName;
   }
 }
